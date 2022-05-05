@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import path, re_path
 from user import views
 
 urlpatterns = [
     path('user', views.user_list),
-    path(r'user/(?P<id>[0-9]+)$', views.user_detail)
+    re_path(r'user/(?P<pk>[0-9]+)$', views.user_detail)
 ]

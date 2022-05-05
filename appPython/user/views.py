@@ -29,10 +29,10 @@ def user_list(request):
         return JsonResponse({"message": '{} Users were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def user_detail(request, id):
+def user_detail(request, pk):
     # find user by Id
     try:
-        user = Users.objects.get(pk=id)
+        user = Users.objects.get(pk=pk)
     except Users.DoesNotExist:
         return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND)
     
